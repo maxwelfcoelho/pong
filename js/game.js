@@ -5,6 +5,7 @@ const WIDTH = 8;
 const HEIGHT = 80;
 
 let mouseY = 0;
+let gameOver = false;
 
 let ball = new Ball(canvas.width / 2, canvas.height / 2);
 let leftPaddle = new Paddle(5, canvas.height / 2 - HEIGHT, WIDTH, HEIGHT);

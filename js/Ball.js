@@ -8,6 +8,11 @@ function Ball(x, y) {
   this.audio.muted = true;
 }
 
+Ball.prototype.reset = function(canvas) {
+  this.x = canvas.width / 2;
+  this.y = canvas.height / 2;
+}
+
 Ball.prototype.move = function(canvas) {
   this.x += this.velocity[0];
   this.y += this.velocity[1];
@@ -32,11 +37,14 @@ Ball.prototype.collide = function(paddle) {
   }
 }
 
-Ball.prototype.hitWall = function(wall, score1, score2) {
+Ball.prototype.hitWall = function(wall, leftScore, rightScore) {
   if (this.x === 0) {
-    score1.increaseScore();
-  } else if (this.x === wall.width) {
-    score2.increaseScore();
+    leftScore.increaseScore();
+    this.reset(wall);
+  } 
+  else if (this.x === wall.width) {
+    rightScore.increaseScore();
+    this.reset(wall);
   }
 }
 

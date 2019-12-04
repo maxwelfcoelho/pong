@@ -10,5 +10,5 @@ Score.prototype.increaseScore = function() {
 
 Score.prototype.draw = function(ctx) {
   ctx.font = "40px Arial";  
-  ctx.fillText(this.value, this.x, this.y)
+  ctx.fillText(this.value, this.x, this.y);
 }
