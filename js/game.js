@@ -26,6 +26,7 @@ function update() {
   ball.bounce(canvas);
   if (mouseY >= 0 && mouseY <= canvas.height - HEIGHT) {
     leftPaddle.move(mouseY);
+    rightPaddle.computer(ball, rightPaddle);
   }
   ball.collide(leftPaddle);
   ball.collide(rightPaddle);
