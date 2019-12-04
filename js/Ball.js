@@ -5,7 +5,6 @@ function Ball(x, y) {
   this.height = 10;
   this.velocity = [5, 5];
   this.audio = new Audio('../assets/sound/pong.wav'); 
-  this.audio.muted = true;
 }
 
 Ball.prototype.reset = function(canvas) {
@@ -39,11 +38,11 @@ Ball.prototype.collide = function(paddle) {
 
 Ball.prototype.hitWall = function(wall, leftScore, rightScore) {
   if (this.x === 0) {
-    leftScore.increaseScore();
+    rightScore.increaseScore();
     this.reset(wall);
   } 
   else if (this.x === wall.width) {
-    rightScore.increaseScore();
+    leftScore.increaseScore();
     this.reset(wall);
   }
 }
